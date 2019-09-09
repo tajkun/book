@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ingzone.book.dao.ApplicationDao">
+    <delete id="delete">
+        DELETE FROM application
+        WHERE id = #{id}
+    </delete>
+    <select id="query" resultType="ApplicationVO">
+        SELECT
+            a.id,
+            a.userId,
+            a.date,
+            u.account,
+            u.nickName,
+            u.date                                                   registerDate,
+            concat("&lt;div id='a", a.id, "'&gt;", "&lt;a style=\"cursor:pointer\" onclick=\"handle(", a.id, ",'",
+                   a.userId, "')\"&gt;同意&lt;/a&gt;", "&lt;/div&gt;") agree,
+            concat("&lt;div id='r", a.id, "'&gt;", "&lt;a style=\"cursor:pointer\" onclick=\"handle(", a.id,
+                   ",null)\"&gt;驳回&lt;/a&gt;", "&lt;/div&gt;")       reject
+        FROM application a
+            LEFT JOIN users u
+                ON u.id = a.userId
+        ORDER BY a.id DESC
+        LIMIT #{page}, #{rows}
+    </select>
+    <select id="count" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM application
+    </select>
+</mapper>

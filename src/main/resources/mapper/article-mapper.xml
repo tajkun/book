@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ingzone.book.dao.ArticleDao">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO article (userId, bookId, pageCount, pageStart, name, discontinues, status)
+        VALUES (#{userId}, #{bookId}, #{pageCount}, #{pageStart}, #{name}, #{discontinue}, -2)
+    </insert>
+    <insert id="insertAuthor">
+        INSERT INTO article_author (articleId, authorId, name, `order`)
+        VALUES (#{articleId}, #{authorId}, #{name}, #{order})
+    </insert>
+    <update id="updateStatus">
+        UPDATE article a
+        SET a.`status` = #{n}
+        WHERE
+        <if test="bookId!=-1">
+            a.bookId = #{bookId}
+        </if>
+        <if test="bookId==-1">
+            a.id = #{articleId}
+        </if>
+    </update>
+    <update id="update">
+        UPDATE article
+        SET xml         = #{xml},
+            content     = #{content},
+            annotations = #{annotations},
+            status      = 0
+        WHERE id = #{id}
+    </update>
+    <delete id="delete">
+        DELETE FROM article
+        WHERE id = #{articleId}
+    </delete>
+    <select id="count" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM article
+        WHERE bookId = #{bookId} AND `status` = #{status}
+    </select>
+    <select id="query" resultType="ArticleVO">
+        SELECT
+        a.id,
+        a.name,
+        a.date,
+        a.id `show`,
+        u.account,
+        u.nickName,
+        a.expertDate,
+        a.id agree,
+        a.id reject,
+        a.bookId,
+        b.name bookName,
+        a.id export
+        FROM article a
+        LEFT JOIN users u
+        ON a.userId = u.id
+        LEFT JOIN book b
+        ON b.id = a.bookId
+        WHERE a.status = #{status}
+        <if test="bookId!=-1">
+            AND a.bookId = #{bookId}
+        </if>
+        ORDER BY a.id DESC
+        LIMIT #{p.page}, #{p.rows}
+    </select>
+    <select id="queryInfo" resultType="ArticleInfoVO">
+        SELECT
+            a.name,
+            b.name fName,
+            b.id   fAuthor,
+            a.pageCount
+        FROM article a
+            LEFT JOIN book b
+                ON a.bookId = b.id
+        WHERE a.id = #{articleId}
+    </select>
+    <select id="getAuthor" resultType="AuthorVO">
+        SELECT
+            a.authorId,
+            a.name
+        FROM article_author a
+        WHERE articleId = #{id}
+    </select>
+    <select id="belong" resultType="int">
+        SELECT count(1)
+        FROM article
+        WHERE id = #{id} AND userId = #{user} AND status = #{status}
+    </select>
+    <select id="queryMyEdit" resultType="ArticleInfoVO">
+        SELECT
+            a.id,
+            a.name,
+            b.name fName,
+            b.id   fAuthor,
+            a.pageCount
+        FROM article a
+            LEFT JOIN book b
+                ON a.bookId = b.id
+        WHERE a.userId = #{u} AND a.status = #{status}
+        ORDER BY a.id DESC
+        LIMIT #{p.page}, #{p.rows}
+    </select>
+    <select id="queryOne" resultType="ArticleTO">
+        SELECT
+            a.content,
+            a.annotations
+            FROM article a
+        WHERE id = #{articleId}
+    </select>
+    <select id="search" resultType="ArticleVO">
+        SELECT
+            a.id,
+            a.name,
+            a.date,
+            u.account,
+            u.nickName,
+            a.expertDate,
+            a.id agree,
+            a.id reject,
+            a.bookId,
+            b.name bookName,
+            a.id export
+        FROM article a
+            LEFT JOIN users u
+                ON a.userId = u.id
+            LEFT JOIN book b
+                ON b.id = a.bookId
+        WHERE a.id in
+        <foreach collection="list" separator="," open="(" close=")" item="item">
+            #{item.id}
+        </foreach>
+    </select>
+    <select id="searchArticle" resultType="ArticleVO">
+        SELECT
+        a.id,
+        a.name,
+        a.date,
+        a.id `show`,
+        u.account,
+        u.nickName,
+        a.expertDate,
+        a.id agree,
+        a.id reject,
+        a.bookId,
+        b.name bookName,
+        a.id export
+        FROM article a
+        LEFT JOIN users u
+        ON a.userId = u.id
+        LEFT JOIN book b
+        ON b.id = a.bookId
+        WHERE a.status = 2 AND a.name LIKE #{k}
+        ORDER BY a.id DESC
+        LIMIT #{p.page}, #{p.rows}
+    </select>
+    <select id="searchCount" resultType="int">
+        SELECT
+            count(1)
+        FROM article a
+        WHERE a.status = 2 AND a.name LIKE #{k}
+    </select>
+</mapper>

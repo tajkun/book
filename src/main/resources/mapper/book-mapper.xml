@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ingzone.book.dao.BookDao">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO book (userId, writtenDate, name, publishedDate,articleTotal,unexamined)
+        VALUES (#{userId}, #{writtenDate}, #{name}, #{publishedDate},#{articleTotal},#{unexamined})
+    </insert>
+    <insert id="insertAuthor">
+        INSERT INTO book_author (bookId, authorId, name, `order`)
+        VALUES (#{bookId}, #{authorId}, #{name}, #{order})
+    </insert>
+    <update id="updateStatus">
+        UPDATE book
+        SET `status` = #{n}
+        WHERE id = #{id}
+    </update>
+    <update id="updateExpertDate">
+        UPDATE book
+        SET expertDate = now()
+        WHERE id = #{bookId}
+    </update>
+    <update id="descUnexamined">
+        UPDATE book b
+        SET b.unexamined = b.unexamined - 1
+        WHERE b.id = (
+            SELECT a.bookId
+            FROM article a
+            WHERE a.id = #{articleId}
+        )
+    </update>
+    <delete id="delete">
+        DELETE FROM book
+        WHERE id = #{id}
+    </delete>
+    <select id="count" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM book
+        WHERE `status` = #{status}
+        <if test="role=='expert'">
+            AND unexamined != 0
+        </if>
+    </select>
+    <select id="query" resultType="BookVO">
+        SELECT
+            b.id,
+            concat(b.id,' ',b.name) name,
+            b.userId,
+            u.account,
+            u.nickName,
+            b.publishedDate,
+            b.articleTotal,
+            b.unexamined,
+            b.writtenDate,
+            b.date,
+            b.id agree,
+            b.id reject,
+            (SELECT count(1) FROM article a WHERE a.bookId = b.id AND a.status = 0) submit
+        FROM book b
+            LEFT JOIN users u
+                ON b.userId = u.id
+        WHERE b.status = #{status}
+            <if test="role=='expert'">
+                AND (SELECT count(1) FROM article a WHERE a.bookId = b.id AND a.status = 0) != 0
+            </if>
+        ORDER BY b.id desc
+        LIMIT #{p.page}, #{p.rows}
+    </select>
+    <select id="queryInfo" resultType="NameAuthorInfoVO">
+        SELECT
+            b.name,
+            b.id author
+        FROM book b
+        WHERE b.id = #{bookId}
+    </select>
+    <select id="queryUnexamined" resultType="java.lang.Integer">
+        SELECT b.unexamined
+        FROM book b
+        WHERE b.id = #{bookId}
+    </select>
+    <select id="getAuthor" resultType="AuthorVO">
+        SELECT
+            b.authorId,
+            b.name
+        FROM book_author b
+        WHERE b.bookId = #{id}
+    </select>
+    <select id="search" resultType="BookVO">
+        SELECT
+        b.id,
+        concat(b.id,' ',b.name) name,
+        b.userId,
+        u.account,
+        u.nickName,
+        b.publishedDate,
+        b.articleTotal,
+        b.unexamined,
+        b.writtenDate,
+        b.date
+        FROM book b
+        LEFT JOIN users u
+        ON b.userId = u.id
+        WHERE b.name LIKE #{k} AND b.unexamined &lt; b.articleTotal
+        ORDER BY b.id desc
+        LIMIT #{p.page}, #{p.rows}
+    </select>
+    <select id="searchCount" resultType="int">
+        SELECT
+         count(1)
+        FROM book b
+        WHERE b.name LIKE #{k} AND b.unexamined &lt; b.articleTotal
+    </select>
+</mapper>

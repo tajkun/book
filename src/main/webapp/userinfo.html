@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" content="">
+    <title>SDU DOC</title>
+    <link href="images/favicon/favicon.png" rel="shortcut icon">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
+	<link href="stylesheets/application.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <link href="css/userinfo.css" rel='stylesheet' type='text/css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--[if lt IE 9]>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- start plugins -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- start slider -->
+    <link href="css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+    <script type="text/javascript" src="js/jquery.cslider.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#da-slider').cslider({
+                autoplay: true,
+                bgincrement: 450
+            });
+
+        });
+    </script>
+    <!-- Owl Carousel Assets -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <script src="js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#owl-demo").owlCarousel({
+                items: 4,
+                lazyLoad: true,
+                autoPlay: true,
+                navigation: true,
+                navigationText: ["", ""],
+                rewindNav: false,
+                scrollPerPage: false,
+                pagination: false,
+                paginationNumbers: false,
+            });
+
+        });
+    </script>
+    <!-- //Owl Carousel Assets -->
+    <!----font-Awesome----->
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+    <!----font-Awesome----->
+</head>
+<body>
+<div class="header_bg">
+    <div class="container">
+        <div class="row header">
+            <div class="logo navbar-left">
+                <h1><a href="index.html">SDU DOC</a></h1>
+            </div>
+            <div class="h_search navbar-right">
+                <form>
+                    <input id="search_edit" type="text" class="text" value="请输入书名" onFocus="this.value = '';"
+                           onBlur="if (this.value == '') {this.value = '请输入书名';}">
+                    <input type="button" onclick="searchBook()" value="搜索">
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row h_menu">
+        <nav class="navbar navbar-default navbar-left" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a class="smoothscroll" href="index.html#all">全部书籍</a></li>
+                    <li><a class="smoothscroll" href="index.html#new">新书推荐</a></li>
+                    <li><a href="search.html">书籍检索</a></li>
+                    <li class="active"><a href="#">个人中心</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+            <!-- start soc_icons -->
+        </nav>
+        <div class="navbar-default">
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li style="border-left: 1px solid rgb(39, 37, 37);">
+                        <a id="login" href="javascript:loginPage();">登录</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--////////////////////////////////////-->
+<div class="main_bg"><!-- start main -->
+    <div class="container" style="border: 1px solid rgb(200, 200, 200);">
+        <div class="main row">
+            <div class="col-md-3 images_1_of_4 text-center">
+                <span class="bg"><img src="images/default_head.jpg"></span>
+            </div>
+            <div class="col-md-6 images_1_of_4 bg1 text-left">
+                <p id="user_nick" class="para" style="font-size: 2.5em">昵称</p>
+				<p id="user_info" class="para"style="font-size: 1.6em">
+                    地区|生日|性别
+                </p>
+                <p id="user_sign" class="para">签名</p>
+                <p id="user_gold" class="para"style="font-size: 2em;color:goldenrod">0金币</p>
+            </div>
+            <div class="col-md-3 images_1_of_4 bg1 text-center">
+				<div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li style="border: 1px solid rgb(200, 200, 200);margin-right: 10px;margin-top: 0px;">
+                            <a id="alert" style="color: black;padding: 12px;" href="javascript:alertInfo();">修改</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- end main -->
+<!--////////////////////////////////////-->
+<br/><br/>
+<div class="main_bg"><!-- start main -->
+    <div class="container" style="border: 1px solid rgb(200, 200, 200);padding-left:1em;">
+        <div class="main row" style="padding:0em;">
+            <div class="col-md-3 images_1_of_4 text-center" style="background-color:white;border-left: 1px solid rgb(200, 200, 200);">
+				<h4 style="margin:1em;font-size:1.4em;"><a href="#">上传记录</a></h4>
+            </div>
+            <div class="col-md-3 images_1_of_4 text-center" style="background-color:lightgray;border-left: 1px solid white;">
+				<h4 style="margin:1em;font-size:1.4em;"><a href="#">下载记录</a></h4>
+            </div>
+            <div class="col-md-3 images_1_of_4 text-center" style="background-color:lightgray;border-left: 1px solid white;">
+				<h4 style="margin:1em;font-size:1.4em;"><a href="#">最近浏览</a></h4>
+            </div>
+            <div class="col-md-3 images_1_of_4 text-center" style="background-color:lightgray;">
+				<h4 style="margin:1em;font-size:1.4em;"><a href="#">古籍收藏</a></h4>
+            </div>
+        </div>
+		<br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/>	
+		<br/><br/><br/><br/><br/><br/>
+    </div>
+</div><!-- end main -->
+<!--////////////////////////////////////-->
+
+<div class="main">
+    <div id="div_info_alert" class="pop_edit edit_intro" style="top: 289.5px; opacity: 1; display: block;">
+        <h3>编辑简介</h3><a href="javascript:alertCancel();" nodetype="close" class="close">×</a>
+        <div class="context">
+            <form id="form" nodetype="form-popup" class="form">
+                <ul>
+                    <li class="mp_dl">
+                        <span>昵称：
+                  <input id="alert_nick" important="yes" type="text" maxlen="20"
+                         class="nick_name mp_field1" placeholder="支持中英文、数字">
+                  </span><span class="realName mp_label">生日：
+                  <input id="alert_birth" type="text" maxlen="15" class="user_name mp_field2"
+                         placeholder="xxxx-xx-xx"></span>
+                    </li>
+                    <li>
+                        <span>地区：
+                  <input id="alert_location" type="text" maxlen="20" class="job mp_field1"></span><span
+                            class="mp_label">性别：
+                  <input id="alert_gender_man" name="alert_gender" type="radio" value="1" class="radio_sex">男
+                  <input id="alert_gender_woman" name="alert_gender" type="radio" value="2" class="radio_sex">女</span>
+                    </li>
+                    <li>
+                        <span>签名：<textarea id="alert_sign" name="birthday" nodetype="birthday" type="text"
+                                           class="intro_info mp_wid"></textarea></span>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="success">
+            <a href="javascript:alertCancel();" nodetype="cancel" class="cancel">取消</a>
+            <a href="javascript:alertOk();" nodetype="ok" class="ok">保存</a>
+        </div>
+    </div>
+</div>
+
+<div class="footer_bg"><!-- start footer -->
+    <div class="container">
+        <div class="row footer">
+            <div class="text-center">
+                <p><a href="http://www.sdu.edu.cn/" target="_blank" title="山东大学">&#169; 山东大学 版权所有&#169; </a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function searchBook() {
+        var s = $("#search_edit").val();
+        if (s != "" && s != "请输入书名") {
+            self.location = "search.html?search=" + s;
+        }
+    }
+    function loginPage() {
+        if ($('#login').text() == "登录") {
+            self.location = "sign-in.html";
+        } else {
+            $.post("/SduDoc/userLogout", {}, function (data) {
+                self.location = "index.html";
+            });
+        }
+    }
+    function alertInfo() {
+        $("#div_info_alert").show();
+    }
+    function alertCancel() {
+        $("#div_info_alert").hide();
+    }
+    function alertOk() {//就是参数多一点而已
+        var nick = $("#alert_nick").val();
+        var sign = $("#alert_sign").text();
+        var birthday = $("#alert_birth").val();
+        var location = $("#alert_location").val();
+        var gender = "男";
+        var val = $('input:radio[name="alert_gender"]:checked').val();
+        if (val == 2)
+            gender = "女";
+        else
+            gender = "男";
+        $.post("/SduDoc/userInfoSet", {
+            "nick": nick,
+            "sign": sign,
+            "gender": gender,
+            "birthday": birthday,
+            "location": location
+        }, function (data) {
+            $("#div_info_alert").hide();
+            if (data == 1) {
+                self.location.reload();
+            }
+        });
+    }
+    $("#div_info_alert").hide();
+    $.post("/SduDoc/userState", {}, function (data) {
+        if (data == 1) {
+            $('#login').text("退出");
+        }
+    });
+    $.post("/SduDoc/userInfoGet", {}, function (data) {
+        if (data == -1)
+            return;
+        var json = eval(data);
+        $.each(json, function (id, item) {
+            $("#user_nick").text(item.nick);
+            $("#alert_nick").val(item.nick);
+            $("#user_sign").text(item.sign);
+            $("#alert_sign").text(item.sign);
+            $("#user_gold").text("");
+            $("#user_gold").append(item.gold + "&nbsp;金币");
+            $("#user_info").text("");
+            $("#user_info").append(item.location + "&nbsp;|&nbsp;" + item.birthday +
+                    "&nbsp;|&nbsp;" + item.gender);
+            $("#alert_birth").val(item.birthday);
+            $("#alert_location").val(item.location);
+            if (item.gender == "男") {
+                $("#alert_gender_man").attr("checked", "checked");
+            } else {
+                $("#alert_gender_woman").attr("checked", "checked");
+            }
+        });
+    });
+</script>
+</body>
+<script type="application/javascript" src="http://apps.bdimg.com/libs/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/js/login.js" type="application/javascript"></script>
+</html>

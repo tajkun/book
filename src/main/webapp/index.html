@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" content="">
+    <title>SDU DOC</title>
+    <link href="images/favicon/favicon.png" rel="shortcut icon">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- start plugins -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- start slider -->
+    <link href="css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+    <script type="text/javascript" src="js/jquery.cslider.js"></script>
+    <script type="application/javascript"
+            src="http://apps.bdimg.com/libs/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#da-slider').cslider({
+                autoplay: true,
+                bgincrement: 450
+            });
+            $(".dropdown-toggle").dropdown('toggle')
+            $(".dropdown-toggle").dropdown('toggle')
+
+            $('a.search_type').click(function () {
+                $('button#type').text($(this).text())
+                $('button#type').attr('value',$(this).attr('value'))
+            })
+
+        });
+    </script>
+    <!-- Owl Carousel Assets -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <script src="js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#owl-demo").owlCarousel({
+                items: 4,
+                lazyLoad: true,
+                autoPlay: true,
+                navigation: true,
+                navigationText: ["", ""],
+                rewindNav: false,
+                scrollPerPage: false,
+                pagination: false,
+                paginationNumbers: false,
+            });
+
+            $("")
+
+        });
+    </script>
+    <!-- //Owl Carousel Assets -->
+    <!----font-Awesome----->
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+    <!----font-Awesome----->
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="header_bg">
+    <div class="container">
+        <div class="row header">
+            <div class="logo navbar-left">
+                <h1><a href="index.html">SDU DOC</a></h1>
+            </div>
+            <div class="h_search navbar-right">
+                <form>
+                    <div class="input-group-btn">
+                        <button id='type' class="btn btn-default search_type_text" tabindex="-1" value='2'>关键字</button>
+                        <button type="button" class="btn btn-default dropdown-toggle search_type_caret" data-toggle="dropdown"
+                                tabindex="-1">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-left search_type_select">
+                            <li><a href="#" class="search_type" value="1">书籍名</a></li>
+                            <li><a href="#" class="search_type" value="2">文章名</a></li>
+                            <li><a href="#" class="search_type" value="3">正文</a></li>
+                            <li><a href="#" class="search_type" value="4">注释</a></li>
+                        </ul>
+                        <input id="search_edit" type="text" value="请输入书名" onFocus="this.value = '';"
+                               onBlur="if (this.value == '') {this.value = '请输入书名';}">
+                        <input type="button" onclick="searchBook()" value="搜索">
+                    </div>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row h_menu">
+        <nav class="navbar navbar-default navbar-left" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">主页</a></li>
+                    <li><a id="a_all" class="smoothscroll" href="#all">书籍分类</a></li>
+                    <li><a id="a_new" class="smoothscroll" href="#new">新书推荐</a></li>
+                    <li><a href="search.html">书籍检索</a></li>
+                    <li><a href="javascript:userCenter();">个人中心</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+            <!-- start soc_icons -->
+        </nav>
+        <div class="navbar-default">
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li style="border-left: 1px solid rgb(39, 37, 37);">
+                        <a id="login" href="javascript:loginPage();">登录</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="slider_bg"><!-- start slider -->
+    <div class="container">
+        <div id="da-slider" class="da-slider text-center">
+            <div class="da-slide">
+                <h2>《红楼梦》与中国文化</h2>
+                <p>
+                    据不完全统计，《红楼梦》迄今已有十八种文字六十多种译本，在世界各国发行，它是世界文学第一流的珍品，已经并且必将愈来愈多地获得世界各国人民的欣赏和赞扬！国外学者把“红学”与“甲骨学”、“敦煌学”一起列为关于中国的三门世界性的“显学”（显赫的学问）。
+                </p>
+                <h3 class="da-link"><a href="#" class="fa-btn btn-1 btn-1e">详情</a></h3>
+            </div>
+            <div class="da-slide">
+                <h2>SDU DOC 全新改版</h2>
+                <p>
+                    随着云技术的发展，互联网+的出现，使得古籍标准的统一成为了可能。我们的项目致力于制定这样一套统一的标准，包括古文的字库、排版、存储格式等信息，通过我们的服务器，统一运维管理，实现古文的规范统一化，并实现高效的古籍检索。这样，在互联网+的模式之下，古籍的整理与保护工作将会更加便利。
+                </p>
+                <h3 class="da-link"><a href="#" class="fa-btn btn-1 btn-1e">详情</a></h3>
+            </div>
+        </div>
+    </div>
+</div><!-- end slider -->
+<div class="main_bg"><!-- start main -->
+    <div class="container">
+        <div class="main row">
+            <div class="text-center content_right">
+                <a name="all"></a>
+                <h4>书籍分类</h4><br/><br/>
+            </div>
+            <div class="col-md-3 images_1_of_4 text-center">
+                <span class="bg"><img src="images/js.png"></span>
+                <h4><a href="#">经部</a></h4>
+                <p class="para">
+                    经部收录儒家“十三经”及相关著作，包括易类、书类、诗类、礼类、春秋类、孝经类、五经总义类、四书类、乐类、小学类等10个大类，其中礼类又分周礼、仪礼、礼记、三礼总义、通礼、杂礼书6属。</p>
+                <a href="#" class="fa-btn btn-1 btn-1e">更多</a>
+            </div>
+            <div class="col-md-3 images_1_of_4 bg1 text-center">
+                <span class="bg"><img src="images/ss.png"></span>
+                <h4><a href="#">史部</a></h4>
+                <p class="para">史部收录史书，包括正史类、编年类、纪事本末类、杂史类、别史类、诏令奏议类、传记类、史钞类、载记类、时令类、地理类、职官类、政书类、目录类、史评类等15个大类。</p>
+                <a href="#" class="fa-btn btn-1 btn-1e">更多</a>
+            </div>
+            <div class="col-md-3 images_1_of_4 bg1 text-center">
+                <span class="bg"><img src="images/zs.png"></span>
+                <h4><a href="#">子部</a></h4>
+                <p class="para">子部收录诸子百家著作和类书，包括儒家类、兵家类、法家类、农家类、医家类、天文算法类、术数类、艺术类、谱录类、杂家类、类书类、小说家类、释家类、道家类等14大类。</p>
+                <a href="#" class="fa-btn btn-1 btn-1e">更多</a>
+            </div>
+            <div class="col-md-3 images_1_of_4 bg1 text-center">
+                <span class="bg"><img src="images/jjs.png"></span>
+                <h4><a href="#">集部</a></h4>
+                <p class="para">集部收录诗文词总集和专集等，包括楚辞、别集、总集、诗文评、词曲等5个大类。除了章回小说、戏剧著作之外，以上门类基本上包括了社会上流布的各种图书。</p>
+                <a href="#" class="fa-btn btn-1 btn-1e">更多</a>
+            </div>
+        </div>
+    </div>
+</div><!-- end main -->
+<div class="main_btm"><!-- start main_btm -->
+    <div class="container">
+        <div class="main row">
+            <div class="text-center content_right">
+                <a name="new"></a>
+                <h4>新书推荐</h4>
+            </div>
+        </div>
+        <!----start-img-cursual---->
+        <div id="owl-demo" class="owl-carousel text-center">
+            <div class="item">
+                <div class="cau_left">
+                    <img class="lazyOwl" data-src="images/book__beishi.jpg" alt="北史">
+                </div>
+                <div class="cau_left">
+                    <h4><a href="#">北史</a></h4>
+                    <p>
+                        《北史》是汇合并删节记载北朝历史的《魏书》、《北齐书》、《周书》而编成的纪传体史书。魏本纪五卷、齐本纪三卷、周本纪二卷、隋本纪二卷、列传八十八卷，共一百卷。
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cau_left">
+                    <img class="lazyOwl" data-src="images/book_chenshu.jpg" alt="陈书">
+                </div>
+                <div class="cau_left">
+                    <h4><a href="#">陈书</a></h4>
+                    <p>
+                        《陈书》是一本纪传体史书，唐朝人姚思廉所著，凡三十六卷，记南朝陈朝史。记载自陈武帝陈霸先即位至陈后主陈叔宝亡国前后三十三年间的史实，成书于贞观十年(636年)。
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cau_left">
+                    <img class="lazyOwl" data-src="images/book_houhanshu.jpg" alt="后汉书">
+                </div>
+                <div class="cau_left">
+                    <h4><a href="#">后汉书</a></h4>
+                    <p>
+                        《后汉书》是一部记载东汉历史的纪传体史书，由南朝刘宋时的范晔（398年－445年）所著，与《史记》、《汉书》、《三国志》合称“前四史”。
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cau_left">
+                    <img class="lazyOwl" data-src="images/book_sanguozhi.jpg" alt="三国志">
+                </div>
+                <div class="cau_left">
+                    <h4><a href="#">三国志</a></h4>
+                    <p>
+                        《三国志》是由西晋史学家陈寿所著，记载中国三国时代的断代史，同时也是二十四史中评价最高的"前四史"之一。
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cau_left">
+                    <img class="lazyOwl" data-src="images/book__beishi.jpg" alt="北史">
+                </div>
+                <div class="cau_left">
+                    <h4><a href="#">北史</a></h4>
+                    <p>
+                        《北史》是汇合并删节记载北朝历史的《魏书》、《北齐书》、《周书》而编成的纪传体史书。魏本纪五卷、齐本纪三卷、周本纪二卷、隋本纪二卷、列传八十八卷，共一百卷。
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cau_left">
+                    <img class="lazyOwl" data-src="images/book_chenshu.jpg" alt="陈书">
+                </div>
+                <div class="cau_left">
+                    <h4><a href="#">陈书</a></h4>
+                    <p>
+                        《陈书》是一本纪传体史书，唐朝人姚思廉所著，凡三十六卷，记南朝陈朝史。记载自陈武帝陈霸先即位至陈后主陈叔宝亡国前后三十三年间的史实，成书于贞观十年(636年)。
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cau_left">
+                    <img class="lazyOwl" data-src="images/book_houhanshu.jpg" alt="后汉书">
+                </div>
+                <div class="cau_left">
+                    <h4><a href="#">后汉书</a></h4>
+                    <p>
+                        《后汉书》是一部记载东汉历史的纪传体史书，由南朝刘宋时的范晔（398年－445年）所著，与《史记》、《汉书》、《三国志》合称“前四史”。
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="cau_left">
+                    <img class="lazyOwl" data-src="images/book_sanguozhi.jpg" alt="三国志">
+                </div>
+                <div class="cau_left">
+                    <h4><a href="#">三国志</a></h4>
+                    <p>
+                        《三国志》是由西晋史学家陈寿所著，记载中国三国时代的断代史，同时也是二十四史中评价最高的"前四史"之一。
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!----//End-img-cursual---->
+    </div>
+</div>
+<div class="footer_bg"><!-- start footer -->
+    <div class="container">
+        <div class="row  footer">
+            <div class="text-center">
+                <p><a href="http://www.sdu.edu.cn/" target="_blank" title="山东大学">&#169; 山东大学 版权所有&#169; </a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function searchBook() {
+        console.log("aaa")
+        var key = $("#search_edit").val();
+        var type = $("button#type").attr('value');
+        if (key != "" && key != "请输入书名") {
+            self.location = "/common/search?key="+key+"&type="+type;
+        }
+    }
+
+    function userCenter() {
+        if ($('#login').text() == "登录") {
+            self.location = "sign-in.html";
+        } else {
+            self.location = "userinfo.html";
+        }
+    }
+
+    function loginPage() {
+        if ($('#login').text() == "登录") {
+            self.location = "sign-in.html";
+        } else {
+            $.post("/SduDoc/userLogout", {}, function (data) {
+                self.location = "index.html";
+            });
+        }
+    }
+
+    function gotoHrefName() {
+        //获取当前URL
+        var local_url = document.location.href;
+        //获取要取得的get参数位置
+        var get = local_url.indexOf("#");
+        if (get == -1) {
+            return;
+        }
+        //截取字符串
+        var get_par = local_url.slice(get + 1);
+        $(function () {
+            setTimeout(function () {
+                document.getElementById("a_" + get_par).click();
+            }, 1000);
+        });
+    }
+
+    gotoHrefName();
+
+    $.post("/SduDoc/userState", {}, function (data) {
+        if (data == 1) {
+            $('#login').text("退出");
+        }
+    });
+
+</script>
+<script src="/js/login.js" type="application/javascript"></script>
+</body>
+</html>

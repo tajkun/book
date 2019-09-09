@@ -1,0 +1,30 @@
+{
+  "author":
+  [
+    {
+      "authorId":7,
+      "name":"唐圭璋",
+      "order":1
+    }
+  ],
+  "writtenDate":"民国",
+  "name":"全宋词",
+  "publishedDate":"民国",
+  "article":
+  [
+    {
+      "pageCount":2,
+      "pageStart":1,
+      "discontinuous":null,
+      "name":"鹊桥仙·纤云弄巧",
+      "author":
+      [
+        {
+          "authorId":4,
+          "name":"秦观",
+          "order":1
+        }
+      ]
+    }
+  ]
+}

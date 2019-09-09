@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="">
+    <title>搜索</title>
+    <link href="images/favicon/favicon.png" rel="shortcut icon">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css'/>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- start plugins -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- start slider -->
+    <link href="css/slider.css" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
+    <script type="text/javascript" src="js/jquery.cslider.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+            $('#da-slider').cslider({
+                autoplay: true,
+                bgincrement: 450
+            });
+
+        });
+    </script>
+    <!-- Owl Carousel Assets -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <script src="js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            $("#owl-demo").owlCarousel({
+                items: 4,
+                lazyLoad: true,
+                autoPlay: true,
+                navigation: true,
+                navigationText: ["", ""],
+                rewindNav: false,
+                scrollPerPage: false,
+                pagination: false,
+                paginationNumbers: false,
+            });
+
+        });
+    </script>
+    <!-- //Owl Carousel Assets -->
+    <!----font-Awesome----->
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+    <!----font-Awesome----->
+    <style>
+        html body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .search-content {
+            position: relative;
+            top: 60px;
+            width: 100%;
+        }
+
+        .search-result {
+            width: 100%;
+            float: left;
+            text-align: center;
+            /*border: 1px solid #487A6F;*/
+            background-color: #fff;
+        }
+
+        .search-result ul {
+            list-style: none;
+        }
+
+        .search-result li {
+            display: block;
+            margin: 0 auto;
+            margin-right: 100px;
+            padding: 20px;
+            -border: 1px dotted #487A6F;
+            background-color: white;
+            width: 88%;
+            height: 180px;
+        }
+
+        .search-result img {
+            width: 100px;
+            height: 140px;
+            background-size: cover;
+            float: left;
+        }
+
+        .search-result-example {
+        }
+
+        .search-book-info {
+            display: inline-block;
+            float: left;
+        }
+
+        .search-book-info > span {
+            padding: 20px;
+        }
+
+        .search-book-intro {
+            display: inline-block;
+            text-align: left;
+            padding: 10px;
+            width: 75%;
+            line-height: 1.5em;
+            font-size: 1.4em;
+            float: left;
+        }
+
+        .work-tag {
+            display: block;
+            padding: 5px;
+            margin-top: 1.4em;
+            position: relative;
+            font-size: 2em;
+        }
+
+        .work-tag-name::before {
+            content: "《";
+            margin-right: 2px;
+        }
+
+        .work-tag-name::after {
+            content: "》";
+            margin-left: 2px;
+        }
+
+        ._search {
+            padding: 0;
+            width: 50%;
+            margin: 0 auto;
+            margin-top: 70px;
+            overflow: hidden;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+        }
+
+        ._search input {
+            height: 50px;
+            padding-left: 20px;
+            border: none;
+
+        }
+
+        ._search ._myLeft {
+            width: 70%;
+            border: 1px solid darkgray;
+        }
+
+        ._search ._myRight {
+            background-color: rgb(61, 61, 61);
+            width: 30%;
+            color: #fff;
+        }
+
+        ._seCont {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        ._seCont label {
+            margin-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="header_bg">
+    <div class="container">
+        <div class="row header">
+            <div class="logo navbar-left">
+                <h1><a href="index.html">SDU DOC</a></h1>
+            </div>
+            <div class="h_search navbar-right">
+                <form>
+                    <div class="input-group-btn">
+                        <button id='type' class="btn btn-default search_type_text" tabindex="-1" value='2'>关键字</button>
+                        <button type="button" class="btn btn-default dropdown-toggle search_type_caret" data-toggle="dropdown"
+                                tabindex="-1">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-left search_type_select">
+                            <li><a href="#" class="search_type" value="1">书籍名</a></li>
+                            <li><a href="#" class="search_type" value="2">文章名</a></li>
+                            <li><a href="#" class="search_type" value="3">正文</a></li>
+                            <li><a href="#" class="search_type" value="4">注释</a></li>
+                        </ul>
+                        <input id="search_edit" type="text" value="请输入书名" onFocus="this.value = '';"
+                               onBlur="if (this.value == '') {this.value = '请输入书名';}">
+                        <input type="button" onclick="searchBook()" value="搜索">
+                    </div>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row h_menu">
+        <nav class="navbar navbar-default navbar-left" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">主页</a></li>
+                    <li><a class="smoothscroll" href="index.html#all">全部书籍</a></li>
+                    <li><a class="smoothscroll" href="index.html#new">新书推荐</a></li>
+                    <li class="active"><a href="search.html">书籍检索</a></li>
+                    <li><a href="javascript:userCenter();">个人中心</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+            <!-- start soc_icons -->
+        </nav>
+        <div class="navbar-default">
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li style="border-left: 1px solid rgb(39, 37, 37);">
+                        <a id="login" href="javascript:loginPage();">登录</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="">
+    <form action="/common/search" method="get">
+        <div class="_search">
+            <input id="searcsh_edit" name="key" type="text" class="text _myLeft" value="">
+            <input class="_myRight" type="submit" value="搜索">
+        </div>
+        <br/><br/>
+        <div class="_seCont">
+            <label><input name="type" type="radio" value="1" checked="checked"/>书籍名 </label>
+            <label><input name="type" type="radio" value="2"/>文章名 </label>
+            <label><input name="type" type="radio" value="3"/>正文 </label>
+            <label><input name="type" type="radio" value="4"/>注释 </label>
+        </div>
+    </form>
+
+</div>
+
+
+</div>
+
+
+<script type="application/javascript">
+    function addItem(id, link, name, text) {//id暂时不处理
+        add = '<li>' +
+            '<a href="' + link + '" target="_blank">' +
+            '<div class="search-result-example">' +
+            '<img src="images/gs.jpg">' +
+            '<div class="search-book-info">' +
+            '<span class="work-tag work-tag-name">' + name + '</span>' +
+            '</div>' +
+            '<div class="search-book-intro">' +
+            '<p><span>&nbsp;&nbsp;</span>' + text +
+            '</p>' +
+            '</div>' +
+            '</div>' +
+            '</a>' +
+            '</li>';
+        $("#search-result-list").append(add);
+    }
+
+    function getParam(par) {
+        //获取当前URL
+        var local_url = document.location.href;
+        //获取要取得的get参数位置
+        var get = local_url.indexOf(par + "=");
+        if (get == -1) {
+            return false;
+        }
+        //截取字符串
+        var get_par = local_url.slice(par.length + get + 1);
+        //判断截取后的字符串是否还有其他get参数
+        var nextPar = get_par.indexOf("&");
+        if (nextPar != -1) {
+            get_par = get_par.slice(0, nextPar);
+        }
+        return get_par;
+    }
+
+    function searchBook() {
+        var s = $("#search_edit").val();
+        if (s != "" && s != "请输入书名") {
+            self.location = "search.html?search=" + encodeURI(s);
+        }
+    }
+
+    function userCenter() {
+        if ($('#login').text() == "登录") {
+            self.location = "sign-in.html";
+        } else {
+            self.location = "userinfo.html";
+        }
+    }
+
+    var p = getParam("search");
+    if (p != false && p != '') {
+        $("#search_edit").val(decodeURI(p));
+        $.post("/SduDoc/bookSearchNormal", {
+            'condition': p
+        }, function (data, status) {
+            $("#search-result-list").text("");
+            var has = false;
+            var json = eval(data);
+            $.each(json, function (id, item) {
+                has = true;
+                addItem(item.bid, item.link, item.name, item.describe);
+            });
+            if (!has) {
+                alert("未找到书籍");
+            }
+        });
+    }
+
+    function loginPage() {
+        if ($('#login').text() == "登录") {
+            self.location = "sign-in.html";
+        } else {
+            $.post("/SduDoc/userLogout", {}, function (data) {
+                self.location = "index.html";
+            });
+        }
+    }
+
+    $.post("/SduDoc/userState", {}, function (data) {
+        if (data == 1) {
+            $('#login').text("退出");
+        }
+    });
+</script>
+<script type="application/javascript"
+        src="http://apps.bdimg.com/libs/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/js/login.js" type="application/javascript"></script>
+</body>
+</html>

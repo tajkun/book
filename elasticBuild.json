@@ -1,0 +1,12 @@
+{
+  "settings":{
+    "analysis":{
+      "analyzer":{
+        "tweets_analyzer":{
+          "tokenizer":"ik_max_word",
+          "filter":["stop","lowercase","snowball"]
+        }
+      }
+    }
+  }
+}

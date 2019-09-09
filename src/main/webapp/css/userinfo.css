@@ -1,0 +1,280 @@
+
+.main .success {
+  border-top: 1px solid #f0f0f0;
+  text-align: right;
+  padding: 10px 0;
+  padding-right: 20px;
+}
+.main .success a {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  width: 80px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  font-size: 14px;
+}
+.main .success .cancel {
+  background: #999;
+}
+.main .success .ok {
+  background: #be0000;
+}
+.main .success .del {
+  background: #999;
+  display: none;
+}
+.main .pop_edit {
+  clear: both;
+  position: absolute;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  top: -300px;
+  left: 50%;
+  margin-left: -333px;
+  margin-top: -205px;
+  z-index: 1000;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+.infodialog{
+	position: fixed;
+	_position:absolute;
+	z-index:1;
+	top: 50%;
+	left: 50%;
+	margin: -141px 0 0 -201px;
+	width: 400px;
+	height:280px;
+	border:1px solid #CCC;
+	line-height: 280px;
+	text-align:center;
+	font-size: 14px;
+	background-color:#F4F4F4;
+	overflow:hidden;
+}
+.main .pop_edit h3 {
+  position: relative;
+  font-weight: normal;
+  font-size: 18px;
+  color: #666;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 19px;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 30px;
+}
+.main .pop_edit h3 .err {
+  position: absolute;
+  font-size: 12px;
+  width: 99%;
+  left: 0;
+  top: inherit;
+  margin: 0;
+  bottom: -23px;
+  text-align: left;
+  padding-left: 5px;
+}
+.main .pop_edit .close {
+  position: absolute;
+  text-decoration: none;
+  right: 30px;
+  top: 5px;
+  font-size: 30px;
+  color: #ccc;
+}
+.main .pop_edit .context {
+  padding: 0 20px 10px;
+  font-size: 16px;
+  color: #333;
+}
+.main .pop_edit .context form {
+  position: relative;
+}
+.main .pop_edit .red {
+  position: absolute;
+  display: inline-block;
+  left: -11px;
+  top: 50%;
+  margin-top: -10px;
+  padding: 0;
+  color: #f00;
+}
+.main .edit_intro {
+  width: 667px;
+}
+.main li {
+  position: relative;
+  list-style: none;
+  margin-bottom: 20px;
+  margin-right: -40px;
+}
+.main li span {
+  padding-right: 20px;
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+.main li em,
+.main li .nick_tip {
+  color: #be0000;
+  padding-left: 20px;
+  font-style: normal;
+  display: none;
+}
+.main li i {
+  font-style: normal;
+}
+.main li em {
+  font-size: 16px;
+  color: #999;
+}
+.main li em i {
+  font-size: 12px;
+  color: #bcbcbc;
+  margin-left: 12px;
+}
+.main li input {
+  height: 28px;
+  border: 1px solid #dcdcdc;
+}
+.main li .radio_sex {
+  width: 20px;
+  height: auto;
+}
+.main li select {
+  width: 183px;
+  height: 28px;
+  border: 1px solid #dcdcdc;
+  color: #666;
+  font-size: 14px;
+  margin-right: 10px;
+  padding-left: 10px;
+}
+.main li .district {
+  display: none;
+}
+.main li textarea {
+  height: 87px;
+  color: #666;
+  font-size: 14px;
+  padding-top: 11px;
+  padding-left: 14px;
+  border: 1px solid #dcdcdc;
+  vertical-align: top;
+}
+.main li .info-alert {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-right: 20px;
+  color: #bc0000;
+}
+.main li .info-alert em {
+  display: inline;
+  padding: 0;
+  font-style: normal;
+  font-size: 12px;
+  color: #bc0000;
+}
+.main .industry {
+  width: 272px;
+}
+.main .mp_dl {
+  display: inline-block;
+  width: 100%;
+}
+.main .mp_field1 {
+  width: 232px;
+}
+.main .mp_field2 {
+  width: 112px;
+}
+.main .mp_label {
+  display: inline-block;
+}
+.main .mp_em_i {
+  font-size: 12px;
+  color: #bcbcbc;
+  margin-left: 12px;
+}
+.main .mp_wid {
+  width: 550px;
+}
+/*.main li .intro_info {
+  width: 560px !important;
+}*/
+.main li input,
+.main li select {
+  vertical-align: middle;
+}
+.main li .edit_edu {
+  width: 591px;
+}
+.main li .school {
+  width: 499px;
+  height: 28px;
+  border: 1px solid #dcdcdc;
+}
+.main li .pro {
+  width: 205px;
+  height: 28px;
+  border: 1px solid #dcdcdc;
+}
+.main li .edu {
+  width: 221px;
+  border: 1px solid #dcdcdc;
+}
+.main li .date {
+  width: 181px;
+  height: 28px;
+  border: 1px solid #dcdcdc;
+}
+.main li .time {
+  margin: 0 5px;
+  color: #bcbcbc;
+  padding: 0;
+}
+.main li .now {
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+}
+.main li i {
+  font-size: 14px;
+  color: #333;
+}
+.main li .intro_info {
+  width: 483px;
+  height: 100px;
+  border: 1px solid #dcdcdc;
+}
+.main .edit_job {
+  width: 591px;
+}
+.main .edit_job .job {
+  width: 205px;
+  height: 28px;
+  border: 1px solid #dcdcdc;
+}
+.main .edit_job .textara_Mes {
+  float: right;
+  color: #f00;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+.main .edit_intro .textara_Mes {
+    float: right;
+    color: #f00;
+    font-size: 12px;
+    margin-right: 15px;
+
+}

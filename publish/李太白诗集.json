@@ -1,0 +1,30 @@
+{
+  "author":
+  [
+    {
+      "authorId":2,
+      "name":"李太白",
+      "order":1
+    }
+  ],
+  "writtenDate":"唐代",
+  "name":"李太白集",
+  "publishedDate":"2009-11-01",
+  "article":
+  [
+    {
+      "pageCount":2,
+      "pageStart":1,
+      "discontinuous":null,
+      "name":"静夜思",
+      "author":
+      [
+        {
+          "authorId":2,
+          "name":"李白",
+          "order":1
+        }
+      ]
+    }
+  ]
+}

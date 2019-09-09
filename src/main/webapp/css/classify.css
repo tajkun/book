@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'FangZhengJinLing'; /*这里是说明调用来的字体名字*/
+    src: url('../fonts/FangZhengJinLing.ttf'); /*这里是字体文件路径*/
+}
+.classifies{
+
+}
+.classify{
+
+}
+.classify_menu{
+    border-top:2px solid rgb(255,84,84);
+    font-size:2.25rem;
+    line-height: 4rem;
+    height:5rem;
+    font-family: 'FangZhengJinLing',serif ;
+}
+.classify_box{
+    background-color: #fff;
+    padding:0.5rem 2rem;
+    height: 4rem;
+    width:16rem;
+    //border-top:2px solid rgb(255,84,84);
+    cursor: pointer;
+}
+.classify_pic{
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    border-radius: 75px;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+    -o-border-radius: 75px;
+}
+.classify_pic img {
+    width: 3rem;
+    float:left;
+}
+.classify_text{
+    line-height: 3rem;
+    font-size:1.75rem;
+    float:right;
+    width: 9rem;
+}
+.hide{
+    display: none;
+}
+.classify_select{
+    text-align: center;
+    line-height: 3rem;
+    font-size:1.375rem;
+    width: 16rem;
+    height: 3rem;
+    padding-left: 2rem;
+    cursor: pointer;
+}
+
+
+.books{
+
+}
+.book{
+    width: 95rem;
+    height: 10rem;
+    border: 1px solid #444;
+    padding: 1rem 1rem;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+.book_pic{
+    float:left;
+}
+.book_pic img{
+    width: 8rem;
+    height: 8rem;
+}
+.book_text{
+    width: 80rem;
+    height: 10rem;
+//padding: 1em 0;
+    font-size:1.5rem;
+    padding: 0 2rem;
+//border:1px solid #123456;
+    float:left;
+}
+.book_name{
+    font-size:1.75rem;
+    font-family: 'FangZhengJinLing',serif ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sub_classify{
+    height:5%;
+}
+.sub_classify li a{
+    height:5%;
+}
+.sub_classify a{
+    color: #000;
+}
+.sub_classify li a:hover,
+.sub_classify li a:focus,
+.sub_classify li.active a:hover,
+.sub_classify li.active a:focus,
+.sub_classify li.active a{
+    background-color: rgb(255,84,84);
+}
