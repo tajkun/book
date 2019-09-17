@@ -22,14 +22,15 @@ public class SessionUtil {
     public static void setCookies(Cookie ...cookies){
         Arrays.stream(cookies).forEach(getResponse()::addCookie);
     }
-    public static void setCookies1(Cookie ...cookies){
+    public static void deleteCookies(Cookie ...cookies){
         for(Cookie cookie:cookies){
-            if(cookie.getName().equals("nickName")){
+            String name = cookie.getName();
+            if(name.equals("nickName")||name.equals("account")||name.equals("role")){
                 cookie.setValue(null);
-                cookie.setMaxAge(0);  //销毁
-                cookie.setPath("/");
-                getResponse().addCookie(cookie);
             }
+            cookie.setMaxAge(0);  //销毁
+            cookie.setPath("/");
+            getResponse().addCookie(cookie);
         }
     }
     public static String user() {
@@ -55,7 +56,7 @@ public class SessionUtil {
     public static void destroySession(){
         HttpSession session = getSession();
         if(session!=null)
-            setCookies1(getRequest().getCookies());
+            deleteCookies(getRequest().getCookies());
             session.invalidate();
     }
 }
