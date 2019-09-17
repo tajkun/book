@@ -4,6 +4,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
@@ -15,8 +16,21 @@ public class SessionUtil {
     public static HttpServletResponse getResponse(){
         return ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getResponse();
     }
+    public static HttpServletRequest getRequest() {
+        return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+    }
     public static void setCookies(Cookie ...cookies){
         Arrays.stream(cookies).forEach(getResponse()::addCookie);
+    }
+    public static void setCookies1(Cookie ...cookies){
+        for(Cookie cookie:cookies){
+            if(cookie.getName().equals("nickName")){
+                cookie.setValue(null);
+                cookie.setMaxAge(0);  //销毁
+                cookie.setPath("/");
+                getResponse().addCookie(cookie);
+            }
+        }
     }
     public static String user() {
         return ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest().getSession().getAttribute("id") + "";
@@ -41,6 +55,7 @@ public class SessionUtil {
     public static void destroySession(){
         HttpSession session = getSession();
         if(session!=null)
+            setCookies1(getRequest().getCookies());
             session.invalidate();
     }
 }
