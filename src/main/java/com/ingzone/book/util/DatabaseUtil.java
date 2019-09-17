@@ -68,7 +68,7 @@ public class DatabaseUtil {
         final String[] in = {""};
         fieldList.forEach(a -> in[0] += a);
         Class.forName("com.mysql.jdbc.Driver");
-        Connection connection = DriverManager.getConnection("jdbc:mysql://wangjingxin.top:3306/book?useUnicode=true&characterEncoding=UTF-8", "book", "book2017");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/book?useUnicode=true&characterEncoding=UTF-8", "root", "root");
         String sql = s.replaceFirst("#", in[0] + "PRIMARY KEY (`id`)") + " ENGINE=InnoDB DEFAULT CHARSET=utf8";
         System.out.println(sql);
         PreparedStatement statement = connection.prepareStatement(sql);
