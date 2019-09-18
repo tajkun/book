@@ -330,9 +330,11 @@
         if ($('#login').text() == "登录") {
             self.location = "sign-in.html";
         } else {
-            $.post("/SduDoc/userLogout", {}, function (data) {
-                self.location = "index.html";
-            });
+            // $.post("/SduDoc/logout", {}, function (data) {
+            //     self.location = "index.html";
+            // });
+            $.get("/common/logout/")
+            self.location="index.html";
         }
     }
 
